@@ -9,6 +9,7 @@ class SingleBook extends React.Component {
   render() {
     return (
       <Card
+        key={this.props.singleBook.asin}
         onClick={() => this.setState({ selected: !this.state.selected })}
         style={{ border: this.state.selected ? "5px solid green" : "none" }}
       >
