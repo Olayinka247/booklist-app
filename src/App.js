@@ -9,7 +9,7 @@ function App() {
   return (
     <div>
       <WarningSign text="Welcome To The Book List Store" />
-      <MyBadge color="primary" info="Book Brand" />
+      <MyBadge color="success" info="Book Brand" />
       <BookList books={fantasy} />
     </div>
   );
