@@ -8,7 +8,7 @@ import SingleBook from "./component/SingleBook";
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <WarningSign text="Welcome To The Book List Store" />
       <MyBadge color="success" info="Book Brand" />
       <SingleBook singleBook={fantasy[3]} />
