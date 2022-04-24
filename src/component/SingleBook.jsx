@@ -11,17 +11,16 @@ class SingleBook extends React.Component {
     return (
       <>
         <Card
-          key={this.props.singleBook.asin}
           onClick={() => this.setState({ selected: !this.state.selected })}
           style={{ border: this.state.selected ? "5px solid green" : "none" }}
         >
-          <Card.Img variant="top" src={this.props.singleBook.img} />
+          <Card.Img variant="top" src={this.props.book.img} />
           <Card.Body>
             <Card.Title style={{ color: "black" }}>
-              {this.props.singleBook.title}
+              {this.props.book.title}
             </Card.Title>
             {this.state.selected && (
-              <CommentArea displayasin={this.props.singleBook.asin} />
+              <CommentArea bookAsin={this.props.book.asin} />
             )}
           </Card.Body>
         </Card>
