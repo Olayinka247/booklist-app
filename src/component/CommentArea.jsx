@@ -1,5 +1,6 @@
 import { Component } from "react";
 import CommentList from "./CommentList";
+import AddComment from "./AddComment";
 
 class CommentArea extends Component {
   state = {
@@ -31,6 +32,7 @@ class CommentArea extends Component {
   render() {
     return (
       <div>
+        <AddComment key={this.props.bookAsin} />
         <CommentList showComment={this.state.comment} />
       </div>
     );
