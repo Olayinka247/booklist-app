@@ -41,7 +41,7 @@ class AddComment extends Component {
       <div>
         <Form onSubmit={this.launchComment}>
           <Form.Group>
-            <Form.Label>Add Comment</Form.Label>
+            <Form.Label className="mt-3">Add Comment</Form.Label>
             <Form.Control
               type="text"
               placeholder="Add comment "
