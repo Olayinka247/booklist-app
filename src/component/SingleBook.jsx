@@ -19,11 +19,9 @@ class SingleBook extends React.Component {
             <Card.Title style={{ color: "black" }}>
               {this.props.book.title}
             </Card.Title>
-            {this.state.selected && (
-              <CommentArea bookAsin={this.props.book.asin} />
-            )}
           </Card.Body>
         </Card>
+        {this.state.selected && <CommentArea bookAsin={this.props.book.asin} />}
       </>
     );
   }
