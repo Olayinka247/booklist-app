@@ -19,10 +19,9 @@ class CommentArea extends Component {
           },
         }
       );
-      console.log(response);
+
       if (response.ok) {
         let comments = await response.json();
-        console.log(comments);
         this.setState({ comment: comments });
       }
     } catch (error) {
@@ -32,7 +31,7 @@ class CommentArea extends Component {
   render() {
     return (
       <div>
-        <AddComment key={this.props.bookAsin} />
+        <AddComment asin={this.props.bookAsin} />
         <CommentList showComment={this.state.comment} />
       </div>
     );

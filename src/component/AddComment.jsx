@@ -10,21 +10,66 @@ class AddComment extends Component {
     },
   };
 
+  launchComment = async (e) => {
+    e.preventDefault();
+    try {
+      let response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/comments/",
+        {
+          method: "POST",
+          body: JSON.stringify(this.state.comment),
+          headers: {
+            "Content-type": "application/json",
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjI4YjI0MzRlYTdiMTAwMTVkMDY3YWYiLCJpYXQiOjE2NTA4Mzk0NzEsImV4cCI6MTY1MjA0OTA3MX0.26nHo-LOdZvvyaRIOf1Mhk4YWVJBDC7o2CmPW0KXEU8",
+          },
+        }
+      );
+      if (response.ok) {
+        alert("Comment Sent Successfully");
+      } else {
+        console.log("Error Occured Try Again");
+        alert("Error Occured Try again");
+      }
+    } catch (error) {
+      console.log("Error Occured");
+    }
+  };
+
   render() {
     return (
       <div>
-        <Form>
+        <Form onSubmit={this.launchComment}>
           <Form.Group>
             <Form.Label>Add Comment</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Add comment"
-              value={this.state.comment}
+              placeholder="Add comment "
+              value={this.state.comment.comment}
+              onChange={(e) =>
+                this.setState({
+                  comment: {
+                    ...this.state.comment,
+                    comment: e.target.value,
+                  },
+                })
+              }
             />
           </Form.Group>
           <Form.Group>
             <Form.Label>Rating</Form.Label>
-            <Form.Control as="select">
+            <Form.Control
+              as="select"
+              value={this.state.comment.rate}
+              onChange={(e) =>
+                this.setState({
+                  comment: {
+                    ...this.state.comment,
+                    rate: e.target.value,
+                  },
+                })
+              }
+            >
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -40,4 +85,5 @@ class AddComment extends Component {
     );
   }
 }
+
 export default AddComment;
