@@ -25,8 +25,14 @@ class BookList extends React.Component {
         </Row>
         <Row>
           {this.props.books
-            .filter((book) =>
-              book.title.toLowerCase().includes(this.state.searchQuery)
+            .filter(
+              (book) =>
+                book.title
+                  .toLowerCase()
+                  .includes(this.state.searchQuery.toLowerCase()) ||
+                book.title
+                  .toUpperCase()
+                  .includes(this.state.searchQuery.toUpperCase())
             )
             .map((book) => (
               <Col md={3} key={book.asin}>
