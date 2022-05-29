@@ -5,7 +5,7 @@ const Welcome = () => (
     <div>
       <h1 className="d-flex justify-content-start">Book Libary 📚 </h1>
       <p className="d-flex justify-content-start">
-        <strong>Read From The Comfort Of Your Home</strong>
+        <strong>Purchase a Book From The Comfort Of Your Home</strong>
       </p>
     </div>
   </Jumbotron>
